@@ -7,21 +7,20 @@
 </head>
 <body>
     <script>
-        // Automatically trigger the download when the page loads
-        window.onload = function() {
-            // Create a temporary <a> element
-            const link = document.createElement('a');
-            // Set the href to the file URL
-            link.href = 'thispersondoesnotexist.com-5.jpeg'; // Replace with your actual file path
-            // Use the download attribute to trigger the download
-            link.download = 'downloaded_myfile.txt'; // Optional: Specify download name
-            // Append the link to the document
-            document.body.appendChild(link);
-            // Simulate a click on the link
-            link.click();
-            // Remove the link after the download is triggered
-            document.body.removeChild(link);
-        };
+        // Check if the file exists before triggering download
+        const filePath = 'thispersondoesnotexist.com-5.jpeg'; // Replace with your actual file path
+
+        // Create a temporary link to trigger the download
+        const link = document.createElement('a');
+        link.href = filePath;
+        link.download = 'downloaded_myfile.txt'; // Optional: Specify download name
+
+        // Append the link to the document
+        document.body.appendChild(link);
+        // Trigger the click event
+        link.click();
+        // Remove the link after the download is triggered
+        document.body.removeChild(link);
     </script>
 </body>
 </html>
