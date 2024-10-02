@@ -3,14 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download File</title>
+    <title>Automatic File Download</title>
 </head>
 <body>
-    <h1>Download the File</h1>
-    
-    <!-- Link to download the file using the 'download' attribute -->
-    <a href="thispersondoesnotexist.com-5.jpeg" download="123456.jpeg">
-        Click here to download the file
-    </a>
+    <script>
+        // Automatically trigger the download when the page loads
+        window.onload = function() {
+            // Create a temporary <a> element
+            const link = document.createElement('a');
+            // Set the href to the file URL
+            link.href = 'myfile.txt'; // Replace with your actual file path
+            // Use the download attribute to trigger the download
+            link.download = 'downloaded_myfile.txt'; // Optional: Specify download name
+            // Append the link to the document
+            document.body.appendChild(link);
+            // Simulate a click on the link
+            link.click();
+            // Remove the link after the download is triggered
+            document.body.removeChild(link);
+        };
+    </script>
 </body>
 </html>
